@@ -16,14 +16,17 @@
 
 variable "job_name" {
   description = "(Required) The name of the dataflow job"
+  default = ""
 }
 
 variable "template_gcs_path" {
   description = "(Required) The GCS path to the Dataflow job template."
+  default = ""
 }
 
 variable "temp_gcs_location" {
   description = "(Required) A writeable location on GCS for the Dataflow job to dump its temporary data."
+  default = ""
 }
 
 variable "parameters" {
@@ -58,11 +61,22 @@ variable "bucket_region" {
 
 variable "jobs_list" {
   description = "The list of dataflow jobs"
-  default     = []
-  type        = "list"
+  type = "list"
+  /*
+  default = [
+    {
+      job_name = ""
+      template_gcs_path =  ""
+      parameters = {},
+      max_workers = ""
+      on_delete = ""
+      zone = ""
+    }
+  ]
+  */
 }
 
 variable "is_jobs_list" {
-  description = "Indicates whether the module if the module is used as a jobs lits"
+  description = "Indicates whether the module if the module is used as a jobs list"
   default     = "false"
 }
